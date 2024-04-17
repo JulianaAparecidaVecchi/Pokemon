@@ -39,108 +39,111 @@ while True:
         break
 while True:
     if extras==0:
-        print(f"Suas vidas extras acabaram\nAté logo {nome}....")
+        print(f"Infelizmente suas pokebolas extras acabaram...\nFoi uma ótima caçada\nAté logo {nome}....")
         break
-    print(60*"-")
-    print("Essas são suas escolhas!")
-    print('''
-    [1] Caverna
-    [2] Mato
-    [3] Mostrar Pokédex
-    [4] Sair      ''')
-    
-    escolha = int(input("Escolha uma opção: "))
-    print(60*"-")
-    if escolha==4:
-        print(f"Até logo {nome}!\n Espero te reencontrar novamente.")
-        break
-    if escolha <=0 or escolha >3:
-        print("Escolha incorreta, digite novamente!")
-        continue
-    if escolha ==1:
-        print("Você está adentrando a caverna...")
-        pokemon_aleatorio=random.choice(caverna)
-        print(f"Você entrou na caverna e encontrou um {pokemon_aleatorio}!")
-        while True:
-            if pokemon_aleatorio in pokedex:
-                print(f"Você já tem o {pokemon_aleatorio} em sua pokédex!")
-                break
-            resposta=input("Deseja tentar capturar esse pokémon (S/N): ")
-            if resposta=="S" or resposta=="s":
-                if random.random() <= prob_capt_caverna:
-                    pokedex.append(pokemon_aleatorio)
-                    print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
-                    print("Voltando para o menu...")
-                    break
-                else:
-                    print(f"O {pokemon_aleatorio} escapou!")
-                    if extras<=3: 
-                        resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
-                        if resposta2 =="S" or resposta2=="s":
-                            extras-=1
-                            if random.random() <= prob_capt_caverna:
-                                pokedex.append(pokemon_aleatorio)
-                                print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
-                                print(f"Você tem {extras} tentativas extras!")
-                                print("Voltando para o menu...")
-                                break
-                            else:
-                                print(f"O {pokemon_aleatorio} escapou!")
-                                print(f"Você tem {extras} tentativas extras!")
-                                print("Voltando para o menu...")
-                                break
-                        else :
-                            print("Voltando para o menu...")
-                            break
-                    
-            elif resposta=="N" or resposta=="n":
-                break
-            else:
-                continue
-    elif escolha ==2:
+    try:
+        print(60*"-")
+        print("Essas são suas escolhas!:")
+        print('''
+[1] Caverna
+[2] Mato
+[3] Mostrar Pokédex
+[4] Sair      ''')
         
-        print("Você está adentrando o mato...")
-        pokemon_aleatorio=random.choice(mato)
-        print(f"Você entrou no mato e encontrou um {pokemon_aleatorio}!")
-        while True:
-            
-            if pokemon_aleatorio in pokedex:
-                print(f"Você já tem o {pokemon_aleatorio} em sua pokédex!")
-                break
-            resposta=input("Deseja tentar capturar esse pokémon (S/N): ")
-            if resposta=="S" or resposta=="s":
-                if random.random() <= prob_capt_mato:
-                    pokedex.append(pokemon_aleatorio)
-                    print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
-                    print("Voltando para o menu...")
+        escolha = int(input("Escolha uma opção: "))
+        print(60*"-")
+        if escolha==4:
+            print(f"Até logo {nome}!\n Espero te reencontrar novamente.")
+            break
+        if escolha <=0 or escolha >3:
+            print("Escolha incorreta, digite novamente!")
+            continue
+        if escolha ==1:
+            print("Você está adentrando a caverna...")
+            pokemon_aleatorio=random.choice(caverna)
+            print(f"Você entrou na caverna e encontrou um {pokemon_aleatorio}!")
+            while True:
+                if pokemon_aleatorio in pokedex:
+                    print(f"Você já tem o {pokemon_aleatorio} em sua pokédex!")
+                    break
+                resposta=input("Deseja tentar capturar esse pokémon (S/N): ")
+                if resposta=="S" or resposta=="s":
+                    if random.random() <= prob_capt_caverna:
+                        pokedex.append(pokemon_aleatorio)
+                        print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
+                        print("Voltando para o menu...")
+                        break
+                    else:
+                        print(f"O {pokemon_aleatorio} escapou!")
+                        if extras<=3: 
+                            resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
+                            if resposta2 =="S" or resposta2=="s":
+                                extras-=1
+                                if random.random() <= prob_capt_caverna:
+                                    pokedex.append(pokemon_aleatorio)
+                                    print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
+                                    print(f"Você tem {extras} tentativas extras!")
+                                    print("Voltando para o menu...")
+                                    break
+                                else:
+                                    print(f"O {pokemon_aleatorio} escapou!")
+                                    print(f"Você tem {extras} tentativas extras!")
+                                    print("Voltando para o menu...")
+                                    break
+                            else :
+                                print("Voltando para o menu...")
+                                break
+                        
+                elif resposta=="N" or resposta=="n":
                     break
                 else:
-                    print(f"O {pokemon_aleatorio} escapou!")
-                    if extras<=3: 
-                        resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
-                        if resposta2 =="S" or resposta2=="s":
-                            extras-=1
-                            if random.random() <= prob_capt_mato:
-                                pokedex.append(pokemon_aleatorio)
-                                print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
-                                print(f"Você tem {extras} tentativas extras!")
+                    continue
+        elif escolha ==2:
+            
+            print("Você está adentrando o mato...")
+            pokemon_aleatorio=random.choice(mato)
+            print(f"Você entrou no mato e encontrou um {pokemon_aleatorio}!")
+            while True:
+                
+                if pokemon_aleatorio in pokedex:
+                    print(f"Você já tem o {pokemon_aleatorio} em sua pokédex!")
+                    break
+                resposta=input("Deseja tentar capturar esse pokémon (S/N): ")
+                if resposta=="S" or resposta=="s":
+                    if random.random() <= prob_capt_mato:
+                        pokedex.append(pokemon_aleatorio)
+                        print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
+                        print("Voltando para o menu...")
+                        break
+                    else:
+                        print(f"O {pokemon_aleatorio} escapou!")
+                        if extras<=3: 
+                            resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
+                            if resposta2 =="S" or resposta2=="s":
+                                extras-=1
+                                if random.random() <= prob_capt_mato:
+                                    pokedex.append(pokemon_aleatorio)
+                                    print(f"Parabéns!\nVocê capturou o {pokemon_aleatorio}!")
+                                    print(f"Você tem {extras} tentativas extras!")
+                                    print("Voltando para o menu...")
+                                    break
+                                else:
+                                    print(f"O {pokemon_aleatorio} escapou!")
+                                    print(f"Você tem {extras} tentativas extras!")
+                                    print("Voltando para o menu...")
+                                    break
+                            else :
                                 print("Voltando para o menu...")
                                 break
-                            else:
-                                print(f"O {pokemon_aleatorio} escapou!")
-                                print(f"Você tem {extras} tentativas extras!")
-                                print("Voltando para o menu...")
-                                break
-                        else :
-                            print("Voltando para o menu...")
-                            break
-                    
-            elif resposta=="N" or resposta=="n":
-                break
-            else:
+                        
+                elif resposta=="N" or resposta=="n":
+                    break
+                else:
+                    continue
+        elif escolha==3:
+            print("===POKÉDEX===")
+            for pokemon_cap in pokedex:
+                print(f"-{pokemon_cap}")
                 continue
-    elif escolha==3:
-        print("===POKÉDEX===")
-        for pokemon_cap in pokedex:
-            print(f"-{pokemon_cap}")
-            continue
+    except ValueError:
+        print("Escolha inválida, tente novamente!")
