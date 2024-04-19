@@ -38,9 +38,6 @@ while True:
         print(f"Certo, {nome}!\nA sua própria lenda POKéMON está prestes a começar!\nUm mundo de sonhos e aventuras o aguarda! Então, vamos lá!")
         break
 while True:
-    if extras==0:
-        print(f"Infelizmente suas pokebolas extras acabaram...\nFoi uma ótima caçada\nAté logo {nome}....")
-        break
     try:
         print(60*"-")
         print("Essas são suas escolhas!:")
@@ -75,7 +72,9 @@ while True:
                         break
                     else:
                         print(f"O {pokemon_aleatorio} escapou!")
-                        if extras<=3: 
+                        if extras==0:
+                            break
+                        if extras<=3 and extras>0: 
                             resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
                             if resposta2 =="S" or resposta2=="s":
                                 extras-=1
@@ -117,7 +116,9 @@ while True:
                         break
                     else:
                         print(f"O {pokemon_aleatorio} escapou!")
-                        if extras<=3: 
+                        if extras==0:
+                            break
+                        if extras<=3 and extras>0: 
                             resposta2=input(f"Quer tentar captura o {pokemon_aleatorio} novamente(S/N): ")
                             if resposta2 =="S" or resposta2=="s":
                                 extras-=1
