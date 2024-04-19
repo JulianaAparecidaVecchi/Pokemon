@@ -146,4 +146,4 @@ while True:
                 print(f"-{pokemon_cap}")
                 continue
     except ValueError:
-        print("Escolha inválida, tente novamente!")
+        print("Escolha inválida, Tente novamente!")
